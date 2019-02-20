@@ -103,6 +103,17 @@ def ascii_structure():
     print('ascii码为97的字符是：', chr(255))
 
 
+# 位运算
+# 常见的位运算有5种：与、或、异或、左移和右移
+def bit_operation():
+    # m<<n: 表示把m左移n位，最左边的n位将被丢弃，同时在最右边补上n个0
+    # m>>n: 表示把m右移n位，最右边的n位将被丢弃，右移时处理最左边位的情形稍微复杂一点
+    # 如果数字是一个无符号数值，则用0填补最左边的n位；如果数字是一个有符号数值，则用数字的符号位填补最左边的n个0
+    # 也就是说，如果数字原先是负数，则右移之后在最左边补n个1.
+    # ex: 00001010 >> 2 = 00000010    10001010 >> 3 = 11110001
+    print('n&(n-1)能消除n中最右边的1')
+
+
 # python常用的排序方法:sort()、sorted()、argsort()
 def sort_method():
     # python的内建排序函数有sort、sorted两个
@@ -150,7 +161,7 @@ def sort_method():
 # sort_method()
 # ascii_structure()
 # array_structure()
-big_heap_structure()
+# big_heap_structure()
 # small_heap_structure()
 # queue_structure()
 # stack_structure()
