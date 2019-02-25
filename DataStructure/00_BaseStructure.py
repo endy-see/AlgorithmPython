@@ -58,7 +58,7 @@ class BigHeap:
 
     def get_top(self):
         if not self.arr:
-            return
+            return None
         return -self.arr[0]
 
 
@@ -115,24 +115,40 @@ def bit_operation():
 
 
 # python常用的排序方法:sort()、sorted()、argsort()
+from functools import cmp_to_key
+import operator
 def sort_method():
     # python的内建排序函数有sort、sorted两个
     # 基础的序列升序排序直接调用sorted()方法即可
     ls = list([5, 2, 3, 1, 4])
-    new_ls = sorted(ls)
-    print(new_ls)
+    # new_ls = sorted(ls)
+    # print(new_ls)
     # 使用ls.sort()也可以，但是它会直接改变ls
-    ls.sort()
-    print(ls)
+    # ls.sort()
+    # print(ls)
     # 注：sort()方法仅定义在list中，无返回值；而sorted()方法对所有的可迭代序列都有效，返回list
 
     # python3 sorted(iterable, key, reverse)
     # python2 sorted(iterable, cmp, key, reverse)
     ls1 = [('david', 90), ('mary', 90), ('sara', 80), ('lily', 95)]
 
-    # sorted的cmp参数：
+    # sorted的cmp参数python2：
     #  sorted(ls1, cmp = lambda x,y: cmp(x[0],y[0])) 按照第一个位置的字母序排序
     #  sorted(ls1, cmp = lambda x,y: cmp(x[1],y[1])) 按照第二个位置的数字序排序
+
+    # 在python3中恢复使用cmp：引入cmp_to_key 但是只能比较数字 不能比较字符串
+    ls.sort(key=cmp_to_key(lambda x, y: x - y))
+    print('cmp sort: ls = ', ls)
+
+    # python3中比较字符串: 方法1.用operator模块的方法，包含的方法：
+    # lt(a,b)：小于     le(a, b)：小于等于      eq(a, b)：等于
+    # ne(a,b)：不等于    ge(a, b)：大于等于      gt(a, b)：大于
+    print('operator.eq', operator.eq('abc', 'edf'))
+    print('operator.gt', operator.gt('abc', 'ab'))
+    # python3中比较字符串: 方法2.关系运算符比较>,<,>=, <=：
+    s1 = 'abc'
+    s2 = 'ab'
+    print(s1 > s2)
 
     # sorted的key参数（key的作用：指定一个函数，此函数将在每个元素比较前被调用）：例如通过key指定的函数来忽略字符串的大小写
     # str1 = "This is a test string from Andrew" 有错
@@ -158,7 +174,7 @@ def sort_method():
     print(ary2.argsort(axis=0)[::-1])   # 按列降序排序2：先升序排序 在逆转
 
 
-# sort_method()
+sort_method()
 # ascii_structure()
 # array_structure()
 # big_heap_structure()
