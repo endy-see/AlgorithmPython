@@ -11,7 +11,7 @@ import sys
 
 class Solution:
     def __init__(self):
-        self.max_multi = sys.maxsize
+        self.min_multi = sys.maxsize
         self.res = []
 
     def FindNumbersWithSum(self, array, tsum):
@@ -26,8 +26,8 @@ class Solution:
             elif array[small] + array[big] > tsum:
                 big -= 1
             else:
-                if array[small] * array[big] < self.max_multi:
-                    self.max_multi = array[small] * array[big]
+                if array[small] * array[big] < self.min_multi:
+                    self.min_multi = array[small] * array[big]
                     self.res = [array[small], array[big]]
                 small += 1
                 big -= 1

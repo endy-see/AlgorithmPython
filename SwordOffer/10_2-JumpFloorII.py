@@ -8,7 +8,7 @@ f(1)=1
 f(2)=2=f(1)+f(0)
 f(3)=4=f(2)+f(1)+f(0)
 ...
-f(n)=2^n=f(n-1)+f(n-2)+...+f(2)+f(1)+f(0)
+f(n)=2^(n-1)=f(n-1)+f(n-2)+...+f(2)+f(1)+f(0)
 """
 
 
@@ -19,3 +19,4 @@ class Solution:
         if number < 1:
             return 0
         return pow(2, number - 1)
+

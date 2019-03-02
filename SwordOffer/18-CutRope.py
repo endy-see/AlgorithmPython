@@ -52,7 +52,6 @@ def maxProductAfterCutting(rope_length):
 # 如果我们按照如下的策略来剪绳子，则得到的各段绳子的长度的乘积将最大：
 # 当n>=5时，我们尽可能多地剪长度为3的绳子；
 # 当剩下的绳子长度为4时，把绳子剪成两段长度为2的绳子
-import math
 def maxProductAfterCutting1(rope_length):
     if rope_length < 2:
         return 0
@@ -71,8 +70,12 @@ def maxProductAfterCutting1(rope_length):
         three_num -= 1
 
     two_num = (rope_length - three_num * 3) // 2
-    return math.pow(3, three_num) + math.pow(2, two_num)
+    return pow(3, three_num)*pow(2, two_num)
 
 
 # test
 print(maxProductAfterCutting1(4))
+print(maxProductAfterCutting1(5))
+print(maxProductAfterCutting1(6))
+print(maxProductAfterCutting1(7))
+# print(maxProductAfterCutting1(8))

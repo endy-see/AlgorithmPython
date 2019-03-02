@@ -25,7 +25,7 @@ class Solution:
         loop1 = self.get_loop_node(head1)
         loop2 = self.get_loop_node(head2)
         # 两条链表都无环
-        if not loop1 and loop2:
+        if not loop1 and not loop2:
             # return self.FindFirstCommonNodeWithNoHoop(head1, head2)
             return self.no_loop(head1, head2)
         # 一条有环一条无环时，不可能有交点

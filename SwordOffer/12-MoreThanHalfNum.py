@@ -30,7 +30,7 @@ class Solution:
                 if count == 0:
                     val = numbers[i]
                     count = 1
-            i += 1
+            # i += 1
         if count >= 1 and self.check_more_than_half(numbers, val):
             return val
         return 0

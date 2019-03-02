@@ -38,6 +38,7 @@ class Solution:
                 else:
                     numbers[numbers[i]] = numbers[i]
                     numbers[i] = temp
+                    i -= 1
         return False
 
 

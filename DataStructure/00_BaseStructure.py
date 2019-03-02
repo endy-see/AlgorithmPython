@@ -23,6 +23,9 @@ def queue_structure():
     queue = deque(['Eric', 'Jone', 'Michael'])
     queue.append('Terry')  # 右边插入元素
     queue.appendleft('Graham')  # 左边插入元素
+    first = queue[0]
+    last = queue[-1]
+    print(first, last)
     print(queue)
     print(queue.pop())  # pop方法 弹出的是右边的元素
     print(queue.popleft())  # pop方法 弹出的是左边的元素
