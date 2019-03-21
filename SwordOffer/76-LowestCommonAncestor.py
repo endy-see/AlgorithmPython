@@ -67,9 +67,10 @@ class Solution2:
         i = 0
         while i < len(pathp) and i < len(pathq):
             if pathp[i] == pathq[i]:
-                res= pathp[i]
+                res = pathp[i]
             else:
                 break
+            i += 1
         return res
 
     def get_path(self, root, n, path):

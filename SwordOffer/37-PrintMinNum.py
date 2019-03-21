@@ -14,7 +14,7 @@
 # -*- coding:utf-8 -*-
 class Solution:
     # python3
-    def PrintMinNumber(self, numbers):
+    def PrintMinNumber1(self, numbers):
         if numbers is None or len(numbers) < 1:
             return ""
         numbers = list(map(str, numbers))
@@ -36,6 +36,20 @@ class Solution:
             return 1
         else:
             return 0
+
+    def PrintMinNumber(self, numbers):
+        if numbers is None or len(numbers) < 1:
+            return ""
+        numbers = list(map(str, numbers))
+        # 先对numbers中的字符串进行两两全排列
+        res = []
+        for i in range(len(numbers) - 1, 0, -1):
+            for j in range(i):
+                # 比较组合之后的ab和ba
+                if numbers[j] + numbers[j + 1] > numbers[j + 1] + numbers[j]:
+                    # 说明last<pre 需要交换
+                    self.swap(numbers, j, j + 1)
+        return ''.join(numbers).lstrip()
 
     def swap(self, arr, i, j):
         tmp = arr[i]

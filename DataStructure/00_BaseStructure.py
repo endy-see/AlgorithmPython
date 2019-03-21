@@ -177,7 +177,22 @@ def sort_method():
     print(ary2.argsort(axis=0)[::-1])   # 按列降序排序2：先升序排序 在逆转
 
 
-sort_method()
+def list_often_used_function():
+    arr = [1, 3, 6, 4]
+    print(arr)
+    # 翻转数组
+    arr.reverse()
+    print(arr)
+    # 对arr中元素由小到大排序
+    arr.sort()
+    print(arr)
+    # 输出arr中1的索引
+    print(arr.index(4))
+
+
+
+list_often_used_function()
+# sort_method()
 # ascii_structure()
 # array_structure()
 # big_heap_structure()

@@ -16,14 +16,16 @@ def maxProfit(prices):
     if not prices or len(prices) < 2:
         return 0
 
-    min_price = prices[0]
-    max_diff = prices[1] - min_price
-    for i in range(2, len(prices)):
-        if prices[i - 1] < min_price:
-            min_price = prices[i - 1]
-        if prices[i] - min_price > max_diff:
-            max_diff = prices[i] - min_price
-    return max_diff
+    max_profit = 0
+    last_min = prices[0]
+    for i in range(1, len(prices)):
+        cur_profit = prices[i] - last_min
+        if cur_profit > max_profit:
+            max_profit = cur_profit
+        if prices[i] < last_min:
+            last_min = prices[i]
+
+    return max_profit
 
 
 # 股票的最大利润（多次卖出-leetcode）
@@ -32,13 +34,12 @@ def maxProfit(prices):
 # 则如果第二天的价格高于第一天的价格就可以以第二天的价格卖出，卖出后立即再次买入；
 # 如果第二天的价格低于第一天的价格，那么就在第一天结束前就卖出，相当于不盈利。
 # 所以通过逐个相邻两数进行比较即可，如果后面的大，则记为利润
-def maxProfit1(prices):
+def maxProfit(self, prices):
     if not prices or len(prices) < 2:
         return 0
-    max_profit = 0
-    for i in range(len(prices)-1):
-        profit = prices[i+1] - prices[i]
-        if profit > 0:
-            max_profit += profit
 
+    max_profit = 0
+    for i in range(0, len(prices) - 1):
+        if prices[i] < prices[i + 1]:
+            max_profit += prices[i + 1] - prices[i]
     return max_profit
